@@ -5,13 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kalbimin Sana Açıldığı Yer ❤️</title>
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Roboto:wght@300&family=Open+Sans:wght@300&family=Lora:wght@400&family=Montserrat:wght@700&display=swap" rel="stylesheet">
 </head>
 <body>
     <audio id="background-music" src="sarki.mp3"></audio>
     <div class="content" onclick="playMusic()">
-        <h1>Hoşgeldin, Sevgilim!</h1>
-        <p>
+        <h1 id="dynamic-text">Hoşgeldin, Sevgilim!</h1>
+        <p id="dynamic-paragraph">
             Bu siteyi senin için hazırladım çünkü seni ne kadar çok sevdiğimi her an hatırlatmak istiyorum. 
             Seninle geçirdiğim her anı ölümsüzleştirmek ve sana olan sevgimi her fırsatta göstermek istiyorum. 
             Seninle olmak, hayatımı anlamlı ve renkli kılıyor. Buraya dokunduğunda kalbimin ritmini hissedeceksin, 
@@ -38,6 +38,33 @@
                 heart.remove();
             }, 5000);
         }
+
+        function changeFont() {
+            const text = document.getElementById('dynamic-text');
+            const paragraph = document.getElementById('dynamic-paragraph');
+            const fonts = [
+                'Dancing Script', 
+                'Roboto', 
+                'Open Sans', 
+                'Lora', 
+                'Montserrat', 
+                'Georgia', 
+                'Times New Roman', 
+                'Arial', 
+                'Courier New', 
+                'Comic Sans MS'
+            ];
+
+            let currentFontIndex = 0;
+
+            setInterval(() => {
+                currentFontIndex = (currentFontIndex + 1) % fonts.length;
+                text.style.fontFamily = fonts[currentFontIndex];
+                paragraph.style.fontFamily = fonts[currentFontIndex];
+            }, 1000); // 1 saniyede bir font değiştirir
+        }
+
+        document.addEventListener('DOMContentLoaded', changeFont);
 
         setInterval(createHeart, 500);
     </script>
