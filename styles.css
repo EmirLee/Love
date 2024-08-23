@@ -26,6 +26,10 @@ body {
     background-color: rgba(0, 0, 0, 0.5); /* Arka planı hafif karartır */
 }
 
+h1, p {
+    transition: font-family 0.5s ease; /* Font değişimini daha pürüzsüz hale getirir */
+}
+
 h1 {
     font-family: 'Dancing Script', cursive; /* Başlık yazı tipi */
     font-size: 2.5em; /* Mobil için biraz daha küçük */
